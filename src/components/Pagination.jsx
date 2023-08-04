@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import { Typography } from "@material-tailwind/react";
 import { useRouter } from "next/router";
+import PropTypes from "prop-types";
 
-export default function Pagination({ name, filter }) {
+/**
+ * @parent pages/index.js
+ *
+ * @param {String} name The name of the book searched by the user and this value is retrived from the query params
+ *
+ * @param {String} filter The filter that is applied by the end user and this filter must have a value that is supported by the google books API
+ *
+ * @returns The pagination UI
+ */
+const Pagination = ({ name, filter }) => {
   const [active, setActive] = useState(1);
   const router = useRouter();
 
@@ -59,7 +69,7 @@ export default function Pagination({ name, filter }) {
         disabled={active === 1}
       >
         <svg
-        //   enableBackground="new 0 0 500 500"
+          //   enableBackground="new 0 0 500 500"
           id="Layer_1"
           version="1.1"
           viewBox="0 0 500 500"
@@ -120,3 +130,12 @@ export default function Pagination({ name, filter }) {
     </div>
   );
 }
+
+Pagination.proptypes = {
+  props: PropTypes.shape({
+    name: PropTypes.string,
+    filter: PropTypes.string,
+  }),
+};
+
+export default Pagination;

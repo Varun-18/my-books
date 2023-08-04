@@ -48,3 +48,26 @@ export const GET_BOOK = gql`
     }
   }
 `;
+
+export const GET_BOOKS_BY_ID = gql`
+  query getBooksByI($ids: [ID]) {
+    bookById(ids: $ids) {
+      id
+      volumeInfo {
+        title
+        averageRating
+        imageLinks {
+          thumbnail
+        }
+        publishedDate
+        pageCount
+        authors
+      }
+      saleInfo {
+        retailPrice {
+          amount
+        }
+      }
+    }
+  }
+`;

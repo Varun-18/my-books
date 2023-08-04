@@ -16,7 +16,7 @@ const useSearch = () => {
    * @returns sets the search query
    */
   const onSubmit = async ({ search }) => {
-    router.replace({ query: { ...router.query, search } });
+    router.replace({ query: { ...router.query, search, pageID: 10 } });
   };
 
   return {

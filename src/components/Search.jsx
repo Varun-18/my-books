@@ -2,6 +2,8 @@ import useSearch from "@talons/useSearch";
 import { useForm } from "react-hook-form";
 
 /**
+ * @parent components/Header
+ *
  * This component handles the searching of the books
  *
  * As it is an user interactive component we have splited it
@@ -20,7 +22,7 @@ const Search = () => {
       <input
         type={"text"}
         {...register("search")}
-        className="p-1 px-2 border rounded-l rounded-r-none shadow-lg flex-1 sm:max-w-[400px] max-w-full"
+        className="sm:p-1 px-2 border rounded-l rounded-r-none shadow-lg flex-1 sm:max-w-[400px] max-w-full"
         placeholder="search"
       />
       <button
