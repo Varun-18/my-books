@@ -1,8 +1,15 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
+/**
+ * This is component that applies the filter on the products that are fetch by the API
+ *
+ * @router This is used for setting the query parameters on the basis of which the products will be fetched
+ *
+ * @returns A filter component
+ */
 const Filter = () => {
-  const [show, setShow] = useState();
+  const [show, setShow] = useState(); // For toggle button
   const router = useRouter();
 
   const applyFilter = (filter) => {
