@@ -8,6 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { client } from "src/graphql";
 import { persistor, store } from "src/store";
 import LoadingBar from "react-top-loading-bar";
+import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -38,6 +39,7 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={client}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
+          <Toaster position="top-center" reverseOrder={false} />
           <Header />
           <LoadingBar
             color="#1E90FF"

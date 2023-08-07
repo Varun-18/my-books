@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
 import Row from "@components/Row";
+import { useRouter } from "next/router";
+import { toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { GET_BOOKS_BY_ID } from "src/graphql/query";
 
@@ -9,6 +11,7 @@ import { GET_BOOKS_BY_ID } from "src/graphql/query";
  * @returns Table that show the products that are added  for comparision by the end user
  */
 const Compare = () => {
+  const router = useRouter();
   const { compare } = useSelector((state) => state.compareReducer);
   const { data, loading, error } = useQuery(GET_BOOKS_BY_ID, {
     variables: {
@@ -16,12 +19,22 @@ const Compare = () => {
     },
   });
 
+  console.log(error);
+
+  if (error) {
+    toast.error(
+      "There was some unexpected error please try again after some time ....!!!",{duration: 2000}
+    );
+    router.back();
+  }
+
   if (loading) {
     return <div>Loading....!!!!!</div>;
   }
+
   return (
     <>
-      {data.bookById.length === 0 ? (
+      {data?.bookById?.length === 0 ? (
         <div className="text-2xl font-semibold uppercase text-center p-8">
           No books added for comparision
         </div>
@@ -61,7 +74,7 @@ const Compare = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.bookById.map((item) => {
+                {data?.bookById?.map((item) => {
                   return <Row item={item} key={item.id} />;
                 })}
               </tbody>

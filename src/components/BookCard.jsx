@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBook, removeBook } from "src/store/compareSlice";
 import PropTypes from "prop-types";
+import { toast } from "react-hot-toast";
 
 /**
  * @parent components/BookLisiting
@@ -20,6 +21,7 @@ import PropTypes from "prop-types";
 const BookCard = ({ item }) => {
   const { compare } = useSelector((state) => state.compareReducer);
   const dispatch = useDispatch();
+  
   return (
     <div key={item.id} className="p-4 md:w-1/2 lg:w-1/3 ">
       <div className="relative h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
@@ -63,8 +65,14 @@ const BookCard = ({ item }) => {
               className="bg-white p-2 rounded shadow-sm border"
               onClick={
                 includes(compare, item.id)
-                  ? () => dispatch(removeBook(item.id))
-                  : () => dispatch(addBook(item.id))
+                  ? () => {
+                      dispatch(removeBook(item.id));
+                      toast.success("Book removed..!!", { duration: 1000 });
+                    }
+                  : () => {
+                      dispatch(addBook(item.id));
+                      toast.success("Book added..!!", { duration: 1000 });
+                    }
               }
             >
               <span className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">

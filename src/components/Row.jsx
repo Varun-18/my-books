@@ -45,7 +45,10 @@ const Row = ({ item }) => {
       <td className="px-6 py-4">
         <button
           className="border-2 p-1.5 rounded shadow-sm"
-          onClick={() => dispatch(removeBook(item.id))}
+          onClick={() => {
+            dispatch(removeBook(item.id));
+            toast.success("Book removed", { duration: 1000 });
+          }}
         >
           Remove
         </button>
