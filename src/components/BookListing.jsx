@@ -17,8 +17,7 @@ const BookListing = ({ books }) => {
   return (
     <div>
       <div className="text-right px-3 max-w-[1400px] pt-4">
-
-      <Filter />
+        <Filter />
       </div>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-3 pb-5 mx-auto">

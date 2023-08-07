@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Typography } from "@material-tailwind/react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
+import usePagination from "@talons/usePagination";
 
 /**
  * @parent pages/index.js
@@ -13,51 +14,7 @@ import PropTypes from "prop-types";
  * @returns The pagination UI
  */
 const Pagination = ({ name, filter }) => {
-  const [active, setActive] = useState(1);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (active * 10 !== parseInt(router.query.pageID)) {
-      if (!router.query.pageID) {
-        setActive(1);
-      } else {
-        setActive(parseInt(router.query.pageID) / 10);
-      }
-    }
-  }, [router.query]);
-
-  const next = () => {
-    if (active === 10) return;
-
-    if (filter) {
-      router.push({
-        query: { search: name, pageID: (active + 1) * 10, filter },
-      });
-    } else {
-      router.push({ query: { search: name, pageID: (active + 1) * 10 } });
-    }
-    setActive(active + 1);
-  };
-
-  const prev = () => {
-    if (active - 1 > 0) {
-      if (filter) {
-        router.push({
-          query: { search: name, pageID: (active - 1) * 10, filter },
-        });
-      } else {
-        router.push({ query: { search: name, pageID: (active - 1) * 10 } });
-      }
-      setActive(active - 1);
-    } else {
-      if (filter) {
-        router.push({ query: { search: name, pageID: 1, filter } });
-      } else {
-        router.push({ query: { search: name, pageID: 1 } });
-      }
-      if (active === 1) return;
-    }
-  };
+  const { active, next, prev } = usePagination({ name, filter });
 
   return (
     <div className="flex items-center gap-8">
@@ -129,7 +86,7 @@ const Pagination = ({ name, filter }) => {
       </button>
     </div>
   );
-}
+};
 
 Pagination.proptypes = {
   props: PropTypes.shape({

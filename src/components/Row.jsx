@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { removeBook } from "src/store/compareSlice";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
 /**
  *  This component is splitted because is is reused and also for better understanding
@@ -12,7 +13,7 @@ import Image from "next/image";
  */
 const Row = ({ item }) => {
   const dispatch = useDispatch();
-  console.log(item);
+
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
       <td className="px-6 py-4">

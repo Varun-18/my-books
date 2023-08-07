@@ -1,9 +1,7 @@
-import { useQuery } from "@apollo/client";
 import Row from "@components/Row";
-import { useRouter } from "next/router";
+import Spinner from "@components/Spinner";
+import useCompare from "@talons/useCompare";
 import { toast } from "react-hot-toast";
-import { useSelector } from "react-redux";
-import { GET_BOOKS_BY_ID } from "src/graphql/query";
 
 /**
  * The main purpose of this components is to fetch the producst that are addedby the user to compare and to show a table of the products
@@ -11,25 +9,18 @@ import { GET_BOOKS_BY_ID } from "src/graphql/query";
  * @returns Table that show the products that are added  for comparision by the end user
  */
 const Compare = () => {
-  const router = useRouter();
-  const { compare } = useSelector((state) => state.compareReducer);
-  const { data, loading, error } = useQuery(GET_BOOKS_BY_ID, {
-    variables: {
-      ids: compare,
-    },
-  });
-
-  console.log(error);
+  const { data, loading, error, router } = useCompare();
 
   if (error) {
     toast.error(
-      "There was some unexpected error please try again after some time ....!!!",{duration: 2000}
+      "There was some unexpected error please try again after some time ....!!!",
+      { duration: 2000 }
     );
     router.back();
   }
 
   if (loading) {
-    return <div>Loading....!!!!!</div>;
+    return <Spinner />;
   }
 
   return (
