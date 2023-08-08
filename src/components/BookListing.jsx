@@ -22,8 +22,8 @@ const BookListing = ({ books }) => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-3 pb-5 mx-auto">
           <div className="flex flex-wrap -m-4 justify-center">
-            {books.map((item) => (
-              <BookCard item={item} key={item.id} />
+            {books.map((item,index) => (
+              <BookCard item={item} index={index} key={item.id} />
             ))}
           </div>
         </div>

@@ -5,7 +5,7 @@ const PersistWrapper = ({ children }) => {
   if (typeof window !== undefined) {
     return (
       <PersistGate loading={null} persistor={persistor}>
-        {children}
+        {() => children}
       </PersistGate>
     );
   } else {

@@ -19,7 +19,7 @@ import Image from "next/image";
  *
  * @returns the html for each indivitual book card
  */
-const BookCard = ({ item }) => {
+const BookCard = ({ item, index }) => {
   const { compare } = useSelector((state) => state.compareReducer);
   const dispatch = useDispatch();
 
@@ -30,7 +30,9 @@ const BookCard = ({ item }) => {
           className="w-fit absolute  font-bold px-1 bg-blue-700 text-white text-sm right-0 top-0 z-50"
           style={{
             background:
-              item?.saleInfo?.saleability === "NOT_FOR_SALE" ? "#ff3632" : "green",
+              item?.saleInfo?.saleability === "NOT_FOR_SALE"
+                ? "#ff3632"
+                : "green",
           }}
         >
           {item?.saleInfo?.saleability === "FOR_SALE"
@@ -39,6 +41,8 @@ const BookCard = ({ item }) => {
         </div>
         <div className="  w-full flex justify-center">
           <Image
+            rel="preload"
+            fetchpriority={index === 0 ? "high" : null}
             src={
               item?.volumeInfo?.imageLinks?.thumbnail
                 ? item?.volumeInfo?.imageLinks?.thumbnail

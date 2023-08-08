@@ -10,7 +10,7 @@ function Home({ books, name, filter }) {
       <Head>
         <title>Books App</title>
         <meta name="description" content="Google Books API next app" />
-        <meta  lang="en" />
+        <meta lang="en" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
