@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import  { useState } from "react";
+import { useState } from "react";
 
 /**
  * This is component that applies the filter on the products that are fetch by the API
@@ -55,7 +55,7 @@ const Filter = () => {
           </svg>
         </button>
         {show ? (
-          <ul className=" absolute z-10 bg-white rounded-lg right-0  border-2 px-2  ">
+          <ul className=" absolute  bg-white rounded-lg right-0  border-2 px-2  z-50">
             <li
               className="w-[100px] py-2 text-center cursor-pointer"
               onClick={() => applyFilter("paid-ebooks")}

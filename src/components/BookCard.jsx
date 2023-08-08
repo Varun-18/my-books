@@ -27,7 +27,7 @@ const BookCard = ({ item, index }) => {
     <div key={item.id} className="p-4 md:w-1/2 lg:w-1/3 ">
       <div className="relative h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
         <div
-          className="w-fit absolute  font-bold px-1 bg-blue-700 text-white text-sm right-0 top-0 z-50"
+          className="w-fit absolute  font-bold px-1 bg-blue-700 text-white text-sm right-0 top-0 z-40"
           style={{
             background:
               item?.saleInfo?.saleability === "NOT_FOR_SALE"
@@ -41,15 +41,14 @@ const BookCard = ({ item, index }) => {
         </div>
         <div className="  w-full flex justify-center">
           <Image
-            rel="preload"
-            fetchpriority={index === 0 ? "high" : null}
+            width={"130%"}
+            height={"auto"} // 16:10 aspect ratio
+            objectFit="cover"
             src={
               item?.volumeInfo?.imageLinks?.thumbnail
                 ? item?.volumeInfo?.imageLinks?.thumbnail
                 : "https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-image-vector-illustration-isolated-png-image_4979075.jpg"
             }
-            height={200}
-            width={150}
             alt="Can't get the image"
           />
         </div>
