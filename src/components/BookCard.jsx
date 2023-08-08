@@ -31,7 +31,7 @@ const BookCard = ({ item, index }) => {
           style={{
             background:
               item?.saleInfo?.saleability === "NOT_FOR_SALE"
-                ? "#ff3632"
+                ? "#990f02"
                 : "green",
           }}
         >

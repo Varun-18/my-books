@@ -33,6 +33,7 @@ function Home({ books, name, filter }) {
 export const getServerSideProps = async (context) => {
   const { search, pageID, filter } = context.query;
 
+  
   const { data } = await client.query({
     query: GET_ALL_BOOKS,
     variables: {
