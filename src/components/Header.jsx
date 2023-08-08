@@ -14,7 +14,7 @@ const Header = () => {
   
 
   return (
-    <div className="bg-[whitesmoke] shadow-lg">
+    <div className="bg-white shadow-lg">
       <div className="max-w-[1400px] flex sm:flex-row flex-col gap-2 p-3 items-center justify-between mx-auto">
         <div className="flex w-full sm:justify-normal justify-between items-center gap-3 order-1">
           <div className="flex items-center gap-3 px-3 text-[#444]">
@@ -32,7 +32,7 @@ const Header = () => {
               </span>
             </Link>
           </div>
-          <div className="text-[#777] uppercase">
+          <div className="text-[#444] uppercase">
             <ul>
               <li>
                 <Link href={"/compare"}>compare</Link>

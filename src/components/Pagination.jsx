@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { Typography } from "@material-tailwind/react";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import usePagination from "@talons/usePagination";
 
@@ -19,6 +17,7 @@ const Pagination = ({ name, filter }) => {
   return (
     <div className="flex items-center gap-8">
       <button
+        name="prev-page-button"
         size="sm"
         variant="outlined"
         color="blue-gray"
@@ -65,6 +64,7 @@ const Pagination = ({ name, filter }) => {
         <strong className="text-blue-gray-900">10</strong>
       </Typography>
       <button
+        name="next-page-button"
         size="sm"
         variant="outlined"
         color="blue-gray"

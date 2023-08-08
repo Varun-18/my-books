@@ -27,7 +27,7 @@ const BookCard = ({ item }) => {
     <div key={item.id} className="p-4 md:w-1/2 lg:w-1/3 ">
       <div className="relative h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
         <div
-          className="w-fit absolute  font-bold px-1 bg-blue-700 text-white text-sm right-0 top-0"
+          className="w-fit absolute  font-bold px-1 bg-blue-700 text-white text-sm right-0 top-0 z-50"
           style={{
             background:
               item?.saleInfo?.saleability === "NOT_FOR_SALE" ? "red" : "green",

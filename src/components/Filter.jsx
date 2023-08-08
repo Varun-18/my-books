@@ -36,6 +36,7 @@ const Filter = () => {
     <div className="sm:order-3 order-2">
       <div className="relative ">
         <button
+          name="filter-button"
           className=" border-2  rounded-md p-2 right-0 top-1"
           onClick={() => setShow(!show)}
         >
