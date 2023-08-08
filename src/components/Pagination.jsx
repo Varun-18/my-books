@@ -32,12 +32,7 @@ const Pagination = ({ name, filter }) => {
           width={"30px"}
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle
-            cx="249.9"
-            cy="250.4"
-            r="204.7"
-            stroke="#000000"
-          />
+          <circle cx="249.9" cy="250.4" r="204.7" stroke="#000000" />
           <circle
             cx="249.9"
             cy="250.4"

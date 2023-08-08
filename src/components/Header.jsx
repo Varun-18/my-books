@@ -9,8 +9,6 @@ import Search from "./Search";
  * @returns The ui for the header component
  */
 const Header = () => {
-  
-
   return (
     <div className="bg-white shadow-lg">
       <div className="max-w-[1400px] flex sm:flex-row flex-col gap-2 p-3 items-center justify-between mx-auto">

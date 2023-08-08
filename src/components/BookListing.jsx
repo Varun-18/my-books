@@ -13,7 +13,6 @@ import Filter from "./Filter";
  * @returns A Book Lisiting Block
  */
 const BookListing = ({ books }) => {
-  const router = useRouter();
   return (
     <div>
       <div className="text-right px-3 max-w-[1400px] pt-4">

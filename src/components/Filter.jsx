@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import  { useState } from "react";
 
 /**
  * This is component that applies the filter on the products that are fetch by the API
