@@ -17,7 +17,7 @@ const Pagination = ({ name, filter }) => {
   return (
     <div className="flex items-center gap-8">
       <button
-        name="prev-page-button"
+        aria-label="prev-page-button"
         size="sm"
         variant="outlined"
         color="blue-gray"
@@ -25,7 +25,6 @@ const Pagination = ({ name, filter }) => {
         disabled={active === 1}
       >
         <svg
-          //   enableBackground="new 0 0 500 500"
           id="Layer_1"
           version="1.1"
           viewBox="0 0 500 500"
@@ -38,7 +37,6 @@ const Pagination = ({ name, filter }) => {
             cy="250.4"
             r="204.7"
             stroke="#000000"
-            // stroke-miterlimit="10"
           />
           <circle
             cx="249.9"
@@ -64,7 +62,7 @@ const Pagination = ({ name, filter }) => {
         <strong className="text-blue-gray-900">10</strong>
       </Typography>
       <button
-        name="next-page-button"
+        aria-label="next-page-button"
         size="sm"
         variant="outlined"
         color="blue-gray"

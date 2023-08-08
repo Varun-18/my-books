@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 /**
  * This is a spinner component for the project that will be displayed when the data fetching is in progress

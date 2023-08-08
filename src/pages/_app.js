@@ -9,6 +9,7 @@ import { client } from "src/graphql";
 import { persistor, store } from "src/store";
 import LoadingBar from "react-top-loading-bar";
 import { Toaster } from "react-hot-toast";
+import PersistWrapper from "src/wrapper/PersistWrapper";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -35,21 +36,42 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
+  // if (typeof window === "undefined") {
+  //   return (
+  //     <ApolloProvider client={client}>
+  //       <Provider store={store}>
+  //         <Toaster position="top-center" reverseOrder={false} />
+  //         <Header />
+  //         <LoadingBar
+  //           color="#1E90FF"
+  //           height={4}
+  //           shadow={false}
+  //           ref={ref}
+  //           waitingTime={700}
+  //         />
+  //         <Component {...pageProps} />
+  //       </Provider>
+  //     </ApolloProvider>
+  //   );
+  // }
+
+  // if (typeof window !== "undefined") {
+
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Toaster position="top-center" reverseOrder={false} />
-          <Header />
-          <LoadingBar
-            color="#1E90FF"
-            height={4}
-            shadow={false}
-            ref={ref}
-            waitingTime={700}
-          />
+        <Toaster position="top-center" reverseOrder={false} />
+        <Header />
+        <LoadingBar
+          color="#1E90FF"
+          height={4}
+          shadow={false}
+          ref={ref}
+          waitingTime={700}
+        />
+        <PersistWrapper>
           <Component {...pageProps} />
-        </PersistGate>
+        </PersistWrapper>
       </Provider>
     </ApolloProvider>
   );

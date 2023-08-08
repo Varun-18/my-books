@@ -26,7 +26,7 @@ const Search = () => {
         placeholder="search"
       />
       <button
-        name="search-button"
+        aria-label="search-button"
         type="submit"
         className="bg-black text-white rounded-r p-2 text-sm shadow-lg "
       >

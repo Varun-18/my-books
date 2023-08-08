@@ -45,6 +45,7 @@ const Row = ({ item }) => {
       </td>
       <td className="px-6 py-4">
         <button
+        aria-label="remove-item-button"
           className="border-2 p-1.5 rounded shadow-sm"
           onClick={() => {
             dispatch(removeBook(item.id));

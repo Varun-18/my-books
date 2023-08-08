@@ -30,7 +30,7 @@ const BookCard = ({ item }) => {
           className="w-fit absolute  font-bold px-1 bg-blue-700 text-white text-sm right-0 top-0 z-50"
           style={{
             background:
-              item?.saleInfo?.saleability === "NOT_FOR_SALE" ? "red" : "green",
+              item?.saleInfo?.saleability === "NOT_FOR_SALE" ? "#ff3632" : "green",
           }}
         >
           {item?.saleInfo?.saleability === "FOR_SALE"
@@ -66,6 +66,7 @@ const BookCard = ({ item }) => {
           />
           <div className="flex items-center flex-wrap ">
             <button
+              aria-label="comapre-button"
               className="bg-white p-2 rounded shadow-sm border"
               onClick={
                 includes(compare, item.id)
