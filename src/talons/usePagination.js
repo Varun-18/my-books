@@ -22,7 +22,7 @@ const usePagination = ({ name, filter }) => {
         setActive(parseInt(router.query.pageID) / 10);
       }
     }
-  }, [router.query]);
+  }, [router.query, active]);
 
   const next = () => {
     if (active === 10) return;

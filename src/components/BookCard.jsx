@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBook, removeBook } from "src/store/compareSlice";
 import PropTypes from "prop-types";
 import { toast } from "react-hot-toast";
+import Image from "next/image";
 
 /**
  * @parent components/BookLisiting
@@ -21,7 +22,7 @@ import { toast } from "react-hot-toast";
 const BookCard = ({ item }) => {
   const { compare } = useSelector((state) => state.compareReducer);
   const dispatch = useDispatch();
-  
+
   return (
     <div key={item.id} className="p-4 md:w-1/2 lg:w-1/3 ">
       <div className="relative h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
@@ -36,15 +37,18 @@ const BookCard = ({ item }) => {
             ? "FOR SALE"
             : "NOT FOR SALE"}
         </div>
-        <img
-          className="lg:h-[225px] md:h-[175px] sm:h-[auto] w-auto sm:w-[150px]  object-cover object-center mx-auto"
-          src={
-            item?.volumeInfo?.imageLinks?.thumbnail
-              ? item?.volumeInfo?.imageLinks?.thumbnail
-              : "https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-image-vector-illustration-isolated-png-image_4979075.jpg"
-          }
-          alt="Can't get the image"
-        />
+        <div className="  w-full flex justify-center">
+          <Image
+            src={
+              item?.volumeInfo?.imageLinks?.thumbnail
+                ? item?.volumeInfo?.imageLinks?.thumbnail
+                : "https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-image-vector-illustration-isolated-png-image_4979075.jpg"
+            }
+            height={200}
+            width={150}
+            alt="Can't get the image"
+          />
+        </div>
         <div className="p-6">
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
             {item?.volumeInfo?.title.length > 20

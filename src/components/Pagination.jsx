@@ -47,16 +47,16 @@ const Pagination = ({ name, filter }) => {
             fill="#FFFFFF"
             r="181.8"
             stroke="#000000"
-            stroke-miterlimit="10"
+            strokeMiterlimit="10"
           />
           <polyline
             fill="none"
             points="  289.7,317.4 198,249 198,249 198,249 198,249 289.6,180.5 "
             stroke="#000000"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="22"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="22"
           />
         </svg>
       </button>
